@@ -3,24 +3,47 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <h4>Listagem de Usuários</h4>
+        <h4>Listagem de Notícias</h4>
+    </div>
+    <div class="row" style="margin-bottom: 1em">
+        {!! \Bootstrapper\Facades\Button::primary('Nova Publicação')->asLinkTo(route('admin.publications.create')) !!}
     </div>
     <div class="row">
-        {!! \Bootstrapper\Facades\Button::primary('Novo Usuário')->asLinkTo(route('admin.users.create')) !!}
-    </div>
-    <div class="row">
-        <br>
-    </div>
-    <div class="row">
-        {!! Table::withContents($users->items())->striped()
-            ->callback('Ações', function ($field, $user){
-                $linkEdit = route('admin.users.edit', ['user' => $user->id]);
-                $linkShow = route('admin.users.show', ['user' => $user->id]);
+        {!! Table::withContents($publications->items())->striped()
+            ->callback('Descrição', function ($field, $publication){
+
+                return \Bootstrapper\Facades\MediaObject::withContents(
+                        [
+                            'image' => $publication->thumb_small_asset,
+                            'link' => '#',
+                            'heading' => '&nbsp;&nbsp;'.$publication->titulo,
+                            'body' => '&nbsp;&nbsp;&nbsp;&nbsp;'.$publication->resumo,
+                        ]
+                );
+            })
+            ->callback('Ações', function ($field, $publication){
+                $linkEdit = route('admin.publications.edit', ['publication' => $publication->id]);
+                $linkShow = route('admin.publications.show', ['publication' => $publication->id]);
                 return \Bootstrapper\Facades\Button::LINK('<i class="fas fa-pencil-alt"></i>')->asLinkTo($linkEdit).'|'.
                        \Bootstrapper\Facades\Button::LINK('<i class="fas fa-times"></i>')->asLinkTo($linkShow);
             })
         !!}
     </div>
-    {!! $users->links() !!}
+    {!! $publications->links() !!}
 </div>
 @endsection
+
+@push('styles')
+    <style type="text/css">
+
+        img .media-object{
+            width: 50px;
+            height: 25px;
+        }
+
+        media-body{
+            width: auto;
+        }
+
+    </style>
+@endpush

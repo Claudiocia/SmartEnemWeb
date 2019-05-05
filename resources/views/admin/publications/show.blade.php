@@ -5,61 +5,56 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card with-transitions">
-                    <div class="card-header"><h4>Usuário <span style="color: #4c110f">{{$user->name}}</span></h4>
-                    <div class="row">
-                    <?php
-                        $iconEdit = '<i class="fas fa-edit"></i>';
-                        $iconDelete = '<i class="fas fa-times"></i>';
-                        $iconVoltar = '<i class="fas fa-angle-double-left"></i>';
+                    <div class="card-header"><h4><span style="color: #4c110f">Noticia</span></h4>
+                        <div class="row">
+                            <?php
+                            $iconEdit = '<i class="fas fa-edit"></i>';
+                            $iconDelete = '<i class="fas fa-times"></i>';
+                            $iconVoltar = '<i class="fas fa-angle-double-left"></i>';
 
-                        $formDelete = \Kris\LaravelFormBuilder\Facades\FormBuilder::plain([
-                            'id' => 'form-delete',
-                            'route' => ['admin.users.destroy' , 'user' => $user->id],
-                            'method' => 'DELETE',
-                            'style' => 'display:none'
-                        ]);
-                    ?>
-                    {!! \Bootstrapper\Facades\Button::primary($iconEdit.'  Editar')->asLinkTo(route('admin.users.edit', ['user' => $user->id])) !!}
-                        &nbsp;&nbsp;
-                    {!! \Bootstrapper\Facades\Button::danger($iconDelete.'  Deletar')
-                                ->asLinkTo(route('admin.users.destroy', ['user' => $user->id]))
-                                ->addAttributes(['onclick' => 'event.preventDefault();document.getElementById("form-delete").submit();'])
-                   !!}
-                        &nbsp;&nbsp;
-                    {!! \Bootstrapper\Facades\Button::primary($iconVoltar.'  Voltar')->asLinkTo(route('admin.users.index')) !!}
-                        {!! form($formDelete) !!}
-                    </div>
+                            $formDelete = \Kris\LaravelFormBuilder\Facades\FormBuilder::plain([
+                                'id' => 'form-delete',
+                                'route' => ['admin.publications.destroy' , 'publication' => $publication->id],
+                                'method' => 'DELETE',
+                                'style' => 'display:none'
+                            ]);
+                            ?>
+                            {!! \Bootstrapper\Facades\Button::primary($iconEdit.'  Editar')->asLinkTo(route('admin.publications.edit', ['publication' => $publication->id])) !!}
+                            &nbsp;&nbsp;
+                            {!! \Bootstrapper\Facades\Button::danger($iconDelete.'  Deletar')
+                                        ->asLinkTo(route('admin.publications.destroy', ['publication' => $publication->id]))
+                                        ->addAttributes(['onclick' => 'event.preventDefault();document.getElementById("form-delete").submit();'])
+                           !!}
+                            &nbsp;&nbsp;
+                            {!! \Bootstrapper\Facades\Button::primary($iconVoltar.'  Voltar')->asLinkTo(route('admin.publications.index')) !!}
+                            {!! form($formDelete) !!}
+                        </div>
                     </div>
                     <div class="card-body">
 
                         <table class="table table-bordered">
 
-                            <tbody>
+                            <tbody style="border: hidden">
                             <tr>
-                                <th scope="row">Id</th>
-                                <td>{{ $user->id }}</td>
+                                <h3 style="font-weight: bold">{{ $publication->titulo }}</h3>
                             </tr>
                             <tr>
-                                <th scope="row">Nome</th>
-                                <td>{{ $user->name }}</td>
+                                <h5><span>{{ $publication->resumo }}</span></h5>
                             </tr>
                             <tr>
-                                <th scope="row">Email</th>
-                                <td>{{ $user->email }}</td>
+                                <p style="text-align: justify"><?php echo nl2br($publication->texto); ?></p>
                             </tr>
                             <tr>
-                                <th scope="row">Celular</th>
-                                <td>{{ $user->smartphone }}</td>
+                                <td>
+                                    <blockquote class="blockquote text-right">
+                                        <footer class="blockquote-footer"><small>
+                                            Fonte: <cite title="Fonte" style="font-weight: bold">{{ $publication->fonte }}</cite>
+                                            / Data Publicação: <cite title="Data Publicação"> <?php echo date('d-m-Y', strtotime($publication->data)); ?></cite>
+                                            / Ult. Atualização: <cite title="Última Atualização"><?php echo date('d-m-Y', strtotime($publication->atualizada)); ?></cite>
+                                            </small></footer>
+                                    </blockquote>
+                                </td>
                             </tr>
-                            <tr>
-                                <th scope="row">Criado em</th>
-                                <td>{{ $user->created_at }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Alterado em</th>
-                                <td>{{ $user->updated_at }}</td>
-                            </tr>
-
                             </tbody>
 
                         </table>

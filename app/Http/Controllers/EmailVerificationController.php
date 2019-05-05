@@ -25,14 +25,14 @@ class EmailVerificationController extends Controller
 
     public function redirectAfterVerification()
     {
-        return url('/');
+        return url('admin/index');
     }
 
     protected function loginUser(){
     $email = \Request::get('email');
     $user = $this->repository->findByField('email', $email)->first();
         \Auth::login($user);
-        \Auth::logout($user);
+
     }
 
 }

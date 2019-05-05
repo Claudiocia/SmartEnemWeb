@@ -5,11 +5,8 @@
     <div class="row">
         <h4>Listagem de Categorias</h4>
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 1em">
         {!! \Bootstrapper\Facades\Button::primary('Nova Categoria')->asLinkTo(route('admin.categories.create')) !!}
-    </div>
-    <div class="row">
-        <br>
     </div>
     <div class="row">
         {!! Table::withContents($categories->items())->striped()

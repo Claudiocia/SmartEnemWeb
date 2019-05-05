@@ -4,8 +4,10 @@ namespace SmartEnem\Models;
 
 use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use SmartEnem\Media\PublicationPaths;
 
 /**
  * Class Publication.
@@ -15,6 +17,8 @@ use Prettus\Repository\Traits\TransformableTrait;
 class Publication extends Model implements Transformable, TableInterface
 {
     use TransformableTrait;
+    use PublicationPaths;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -23,8 +27,8 @@ class Publication extends Model implements Transformable, TableInterface
      */
     protected $fillable = [
         'titulo', 'texto', 'resumo', 'fonte',
-        'imagem', 'publicada', 'atualizada',
-        'tag', 'user_id'
+        'data', 'imagem', 'tag', 'publicada', 'atualizada',
+        'user_id', 'category_id'
         ];
 
     /**
@@ -34,7 +38,7 @@ class Publication extends Model implements Transformable, TableInterface
      */
     public function getTableHeaders()
     {
-        return['Id', 'Titulo', 'Resumo', 'Data'];
+        return['Tag'];
     }
 
     /**
@@ -47,20 +51,23 @@ class Publication extends Model implements Transformable, TableInterface
     public function getValueForHeader($header)
     {
         switch ($header){
-            case 'Id':
-                return $this->id;
-            case 'Titulo':
-                return $this->titulo;
-            case 'Resumo':
-                return $this->resumo;
-            case 'Data':
-                return $this->data;
+            case 'Tag':
+                if (!isset($this->category->name)){
+                    return 'Tag';
+                }else{
+                    return $this->category->name;
+                }
+
         }
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
 
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }

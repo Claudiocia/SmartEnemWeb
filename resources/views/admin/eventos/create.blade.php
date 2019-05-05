@@ -5,8 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card with-transitions">
-                    <div class="card-header"><h4>Novo Usuário</h4></div>
-
+                    <div class="card-header"><h4>Novo Evento</h4></div>
                     <div class="card-body">
                         <?php $icon = '<i class="fas fa-save"></i>'; ?>
                         {!!

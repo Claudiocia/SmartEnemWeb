@@ -18,14 +18,14 @@ class CreatePublicationsTable extends Migration
 		Schema::create('publications', function(Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
-            $table->text('texto');
+            $table->binary('texto');
             $table->string('resumo');
             $table->string('fonte');
             $table->date('data');
             $table->string('imagem')->nullable();
-            $table->boolean('publicada')->default(false);
-            $table->boolean('atualizada')->default(false);
             $table->string('tag');
+            $table->boolean('publicada')->default(0);
+            $table->date('atualizada')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

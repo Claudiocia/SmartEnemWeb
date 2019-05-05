@@ -4,6 +4,7 @@ namespace SmartEnem\Models;
 
 use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
@@ -15,6 +16,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 class Evento extends Model implements Transformable, TableInterface
 {
     use TransformableTrait;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -23,29 +25,33 @@ class Evento extends Model implements Transformable, TableInterface
      */
     protected $fillable =
         [
-            'inicio', 'final', 'titulo', 'texto',
-            'resumo', 'imagem', 'publicada', 'atualizada',
-            'status', 'tag', 'user_id'
+            'inicio', 'final', 'titulo', 'resumo',
+            'publicada', 'atualizada', 'status',
+            'tag', 'year', 'user_id', 'category_id'
         ];
 
     public function getTableHeaders()
     {
-        return [ 'Id', 'Inicio', 'Final', 'Titulo', 'Resumo', 'Status'];
+        return [ 'Tag', 'Inicio', 'Final', 'Status'];
     }
 
     public function getValueForHeader($header)
     {
         switch ($header){
-            case 'Id':
-                return $this->id;
+            case 'Tag':
+                return $this->category->name;
             case 'Inicio':
-                return $this->inicio;
+                if ($this->inicio == null){
+                    return 'Data a ser definida';
+                }else {
+                    return date('d-m-Y', strtotime($this->inicio));
+                }
             case 'Final':
-                return $this->final;
-            case 'Titulo':
-                return $this->titulo;
-            case 'Resumo':
-                return $this->resumo;
+                if ($this->final == null){
+                    return 'Data a ser definida';
+                }else {
+                    return date('d-m-Y', strtotime($this->final));
+                }
             case 'Status':
                 return $this->status;
         }
@@ -53,7 +59,11 @@ class Evento extends Model implements Transformable, TableInterface
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }

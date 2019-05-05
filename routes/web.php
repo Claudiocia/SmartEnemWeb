@@ -15,6 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Rotas publicas
+Route::get('/noticias/index', 'NoticiasController@index')
+    ->name('noticias.index');
+Route::get('/noticias/show/{publication}', 'NoticiasController@show')
+    ->name('noticias.show');
+Route::name('noticias.thumb_small_asset')
+    ->get('noticias/{publication}/thumb_small_asset', 'NoticiasController@thumbSmallAsset');
+Route::name('noticias.thumb_asset')
+    ->get('noticias/{publication}/thumb_asset', 'NoticiasController@thumbAsset');
+
+
+
+
 //Rotas de recuperação de senha
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')
     ->name('password.request');
@@ -30,7 +43,7 @@ Route::get('email-verification/error', 'EmailVerificationController@getVerificat
 Route::get('email-verification/check/{token}', 'EmailVerificationController@getVerification')
     ->name('email-verification.check');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group([
     'prefix' => 'admin',
@@ -49,6 +62,10 @@ Route::group([
         Route::resource('users', 'UsersController');
         Route::resource('categories', 'CategoriesController');
         Route::resource('eventos', 'EventosController');
+        Route::name('publications.thumb_small_asset')
+            ->get('publications/{publication}/thumb_small_asset', 'PublicationsController@thumbSmallAsset');
+        Route::name('publications.thumb_asset')
+            ->get('publications/{publication}/thumb_asset', 'PublicationsController@thumbAsset');
         Route::resource('publications', 'PublicationsController');
     });
 

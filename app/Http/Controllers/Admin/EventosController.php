@@ -3,10 +3,26 @@
 namespace SmartEnem\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use SmartEnem\Forms\EventoForm;
 use SmartEnem\Http\Controllers\Controller;
+use SmartEnem\Models\Evento;
+use SmartEnem\Repositories\EventoRepository;
 
 class EventosController extends Controller
 {
+    /**
+     * @var EventoRepository
+     */
+    private $repository;
+
+    /**
+     * EventosController constructor.
+     */
+    public function __construct(EventoRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +30,8 @@ class EventosController extends Controller
      */
     public function index()
     {
-        //
+        $eventos = $this->repository->orderBy('inicio', 'ASC')->paginate();
+        return view('admin.eventos.index', compact('eventos'));
     }
 
     /**
@@ -24,7 +41,12 @@ class EventosController extends Controller
      */
     public function create()
     {
-        //
+        $form = \FormBuilder::create(EventoForm::class, [
+            'url' => route('admin.eventos.store'),
+            'method' => "POST"
+        ]);
+
+        return view('admin.eventos.create', compact('form'));
     }
 
     /**
@@ -35,29 +57,48 @@ class EventosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = \FormBuilder::create(EventoForm::class);
+
+        if (!$form->isValid()){
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+        $data = $form->getFieldValues();
+        $this->repository->create($data);
+
+        $request->session()->flash('msg', 'Evento criado com sucesso!!');
+        return redirect()->route('admin.eventos.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Evento $evento
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Evento $evento)
     {
-        //
+        return view('admin.eventos.show', compact('evento'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Evento $evento
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Evento $evento)
     {
-        //
+        $form = \FormBuilder::create(EventoForm::class, [
+            'url' => route('admin.eventos.update', [ 'evento' => $evento->id]),
+            'method' => "PUT",
+            'model' => $evento
+        ]);
+
+        return view('admin.eventos.edit', compact('form'));
+
     }
 
     /**
@@ -69,7 +110,21 @@ class EventosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $form = \FormBuilder::create(EventoForm::class, [
+            'data' => ['id' => $id]
+        ]);
+
+        if (!$form->isValid()){
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+        $data = $form->getFieldValues();
+        $this->repository->update($data, $id);
+
+        $request->session()->flash('msg', 'Evento alterado com suceso!!');
+        return redirect()->route('admin.eventos.index');
     }
 
     /**
@@ -78,8 +133,10 @@ class EventosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $this->repository->delete($id);
+        $request->session()->flash('msg', 'Evento excluído com sucesso.');
+        return redirect()->route('admin.eventos.index');
     }
 }

@@ -5,11 +5,8 @@
     <div class="row">
         <h4>Listagem de Usuários</h4>
     </div>
-    <div class="row">
+    <div class="row" style="margin-bottom: 1em">
         {!! \Bootstrapper\Facades\Button::primary('Novo Usuário')->asLinkTo(route('admin.users.create')) !!}
-    </div>
-    <div class="row">
-        <br>
     </div>
     <div class="row">
         {!! Table::withContents($users->items())->striped()

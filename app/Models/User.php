@@ -77,4 +77,8 @@ class User extends Authenticatable implements TableInterface
                return $this->smartphone;
        }
     }
+
+    public function publications(){
+        return $this->belongsToMany(Publication::class);
+    }
 }

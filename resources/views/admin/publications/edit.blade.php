@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card with-transitions">
-                    <div class="card-header"><h4>Editar Usuário</h4>
+                    <div class="card-header"><h4>Editar Noticia</h4>
                         <div class="row" style="margin-left: 5px">
                             <?php $iconVoltar = '<i class="fas fa-angle-double-left"></i>'; ?>
-                            {!! \Bootstrapper\Facades\Button::primary($iconVoltar.'  Voltar')->asLinkTo(route('admin.users.index')) !!}
+                            {!! \Bootstrapper\Facades\Button::primary($iconVoltar.'  Voltar')->asLinkTo(route('admin.publications.index')) !!}
                         </div>
                     </div>
 

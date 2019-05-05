@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card with-transitions">
-                    <div class="card-header"><h4>Usuário <span style="color: #4c110f">{{$user->name}}</span></h4>
+                    <div class="card-header"><h4>Evento <span style="color: #4c110f">{{$evento->titulo}}</span></h4>
                     <div class="row">
                     <?php
                         $iconEdit = '<i class="fas fa-edit"></i>';
@@ -14,19 +14,19 @@
 
                         $formDelete = \Kris\LaravelFormBuilder\Facades\FormBuilder::plain([
                             'id' => 'form-delete',
-                            'route' => ['admin.users.destroy' , 'user' => $user->id],
+                            'route' => ['admin.eventos.destroy' , 'evento' => $evento->id],
                             'method' => 'DELETE',
                             'style' => 'display:none'
                         ]);
                     ?>
-                    {!! \Bootstrapper\Facades\Button::primary($iconEdit.'  Editar')->asLinkTo(route('admin.users.edit', ['user' => $user->id])) !!}
+                    {!! \Bootstrapper\Facades\Button::primary($iconEdit.'  Editar')->asLinkTo(route('admin.eventos.edit', ['evento' => $evento->id])) !!}
                         &nbsp;&nbsp;
                     {!! \Bootstrapper\Facades\Button::danger($iconDelete.'  Deletar')
-                                ->asLinkTo(route('admin.users.destroy', ['user' => $user->id]))
+                                ->asLinkTo(route('admin.eventos.destroy', ['evento' => $evento->id]))
                                 ->addAttributes(['onclick' => 'event.preventDefault();document.getElementById("form-delete").submit();'])
                    !!}
                         &nbsp;&nbsp;
-                    {!! \Bootstrapper\Facades\Button::primary($iconVoltar.'  Voltar')->asLinkTo(route('admin.users.index')) !!}
+                    {!! \Bootstrapper\Facades\Button::primary($iconVoltar.'  Voltar')->asLinkTo(route('admin.eventos.index')) !!}
                         {!! form($formDelete) !!}
                     </div>
                     </div>
@@ -37,27 +37,37 @@
                             <tbody>
                             <tr>
                                 <th scope="row">Id</th>
-                                <td>{{ $user->id }}</td>
+                                <td>{{ $evento->id }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Nome</th>
-                                <td>{{ $user->name }}</td>
+                                <th scope="row">Título</th>
+                                <td>{{ $evento->titulo }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Email</th>
-                                <td>{{ $user->email }}</td>
+                                <th scope="row">Data Início</th>
+                                <?php if ($evento->inicio == null){
+                                    $inicio = 'Data a ser definida';
+                                }else {
+                                    $inicio = date('d-m-Y', strtotime($evento->inicio));
+                                }  ?>
+                                <td>{{ $inicio }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Celular</th>
-                                <td>{{ $user->smartphone }}</td>
+                                <th scope="row">Final</th>
+                                <?php if ($evento->final == null){
+                                    $final = 'Data a ser definida';
+                                }else {
+                                    $final = date('d-m-Y', strtotime($evento->final));
+                                }  ?>
+                                <td>{{ $final }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Criado em</th>
-                                <td>{{ $user->created_at }}</td>
+                                <th scope="row">Descrição</th>
+                                <td><?php echo nl2br($evento->resumo); ?></td>
                             </tr>
                             <tr>
-                                <th scope="row">Alterado em</th>
-                                <td>{{ $user->updated_at }}</td>
+                                <th scope="row">Status</th>
+                                <td>{{ $evento->status }}</td>
                             </tr>
 
                             </tbody>
