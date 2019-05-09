@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.public')
 
 @section('content')
     <div class="container">
@@ -23,7 +23,10 @@
                                 <h3 style="font-weight: bold">{{ $publication->titulo }}</h3>
                             </tr>
                             <tr>
-                                <h5><span>{{ $publication->resumo }}</span></h5>
+                                <h6 class="dt" ><span>{{ $publication->resumo }}</span></h6>
+                            </tr>
+                            <tr>
+                                {{ Html::image('storage/publications/'.$publication->id.'/'.$publication->imagem, 'ícone', ['class' => 'mr-3 mb-3', 'height' => '200']) }}
                             </tr>
                             <tr>
                                 <p style="text-align: justify"><?php echo nl2br($publication->texto); ?></p>

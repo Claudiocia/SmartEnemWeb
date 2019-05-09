@@ -23,6 +23,7 @@
                                         <a class="pr-0 text-decoration-none" href="{{ route('noticias.show', ['publication' => $publication->id]) }}">
                                             <h5 class="mt-0 mb-1">{!! $publication->titulo !!}</h5></a>
                                         <p>{!! $publication->resumo !!}</p>
+                                        <span class="badge badge-dark" style="alignment: right">Data - <?php echo date('d-m-Y', strtotime($publication->data)); ?></span>
                                     </div>
                                 </li>
                                 @endforeach
