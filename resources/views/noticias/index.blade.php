@@ -18,7 +18,7 @@
                             @foreach($publications as $publication)
 
                                 <li class="media">
-                                    {{ Html::image('storage/publications/'.$publication->id.'/'.$publication->imagem, 'ícone', ['class' => 'mr-3 mb-3', 'height' => '80', 'width' => '80']) }}
+                                    {{ Html::image('storage/publications/'.$publication->id.'/'.$publication->imagem, 'ícone', ['class' => 'mr-3 mb-3', 'height' => '80']) }}
                                     <div class="media-body">
                                         <a class="pr-0 text-decoration-none" href="{{ route('noticias.show', ['publication' => $publication->id]) }}">
                                             <h5 class="mt-0 mb-1">{!! $publication->titulo !!}</h5></a>

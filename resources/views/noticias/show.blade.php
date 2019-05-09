@@ -25,8 +25,8 @@
                             <tr>
                                 <h6 style="font-weight: bold" ><span>{{ $publication->resumo }}</span></h6>
                             </tr>
-                            <tr align="center">
-                                {{ Html::image('storage/publications/'.$publication->id.'/'.$publication->imagem, 'ícone', ['class' => 'mr-3 mb-3', 'height' => '200']) }}
+                            <tr>
+                                <div align="center">{{ Html::image('storage/publications/'.$publication->id.'/'.$publication->imagem, 'ícone', ['class' => 'mr-3 mb-3', 'height' => '200']) }}</div>
                             </tr>
                             <tr>
                                 <p style="text-align: justify"><?php echo nl2br($publication->texto); ?></p>

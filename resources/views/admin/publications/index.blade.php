@@ -36,11 +36,6 @@
 @push('styles')
     <style type="text/css">
 
-        img .media-object{
-            width: 50px;
-            height: 25px;
-        }
-
         media-body{
             width: auto;
         }
