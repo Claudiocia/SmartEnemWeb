@@ -23,9 +23,9 @@
                                 <h3 style="font-weight: bold">{{ $publication->titulo }}</h3>
                             </tr>
                             <tr>
-                                <h6 class="dt" ><span>{{ $publication->resumo }}</span></h6>
+                                <h6 style="font-weight: bold" ><span>{{ $publication->resumo }}</span></h6>
                             </tr>
-                            <tr>
+                            <tr align="center">
                                 {{ Html::image('storage/publications/'.$publication->id.'/'.$publication->imagem, 'ícone', ['class' => 'mr-3 mb-3', 'height' => '200']) }}
                             </tr>
                             <tr>
