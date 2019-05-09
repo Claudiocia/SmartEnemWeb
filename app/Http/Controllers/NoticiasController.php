@@ -30,7 +30,7 @@ class NoticiasController extends Controller
      */
     public function index()
     {
-        $publications = $this->repository->orderBy('data', 'DESC')->paginate();
+        $publications = $this->repository->orderBy('data', 'DESC');
         return view('noticias.index', compact('publications'));
     }
 

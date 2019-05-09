@@ -30,7 +30,6 @@
                                 </li>
                                 @endforeach
                     </div>
-                    {!! $publications->links() !!}
                 </div>
             </div>
         </div>
