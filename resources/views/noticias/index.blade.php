@@ -24,7 +24,7 @@
                                             <h5 class="mt-0 mb-1">{!! $publication->titulo !!}</h5></a>
                                         <p>{!! $publication->resumo !!}</p>
                                         <blockquote class="blockquote text-right">
-                                            Data: <cite title="Data" style="font-weight: bold"><?php echo date('d-m-Y', strtotime($publication->data)); ?></cite>
+                                            <small>Data: <cite title="Data" style="font-weight: bold"><?php echo date('d-m-Y', strtotime($publication->data)); ?></cite></small>
                                         </blockquote>
                                     </div>
                                 </li>
