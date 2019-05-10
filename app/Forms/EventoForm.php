@@ -22,6 +22,14 @@ class EventoForm extends Form
                 'label' => 'Ano do Enem (yyyy)',
                 'rules' => 'required|digits:4'
             ])
+            ->add('mes', 'text', [
+                'label' => 'Mês de Início',
+                'rules' => 'required|month'
+            ])
+            ->add('ordmes', 'text', [
+                'label' => 'Ordem no cronograma',
+                'rules' => 'required|digits'
+            ])
             ->add('inicio', 'date', [
                 'label' => 'Início do evento',
             ])
