@@ -30,7 +30,7 @@ class EventosController extends Controller
      */
     public function index()
     {
-        $eventos = $this->repository->orderBy('ordmes', 'DESC')->paginate();
+        $eventos = $this->repository->orderBy('inicio', 'DESC')->paginate();
         return view('admin.eventos.index', compact('eventos'));
     }
 

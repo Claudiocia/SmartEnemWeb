@@ -27,8 +27,7 @@ class Evento extends Model implements Transformable, TableInterface
         [
             'inicio', 'final', 'titulo', 'resumo',
             'publicada', 'atualizada', 'status',
-            'tag', 'year', 'mes', 'ordmes', 'user_id',
-            'category_id'
+            'tag', 'year', 'user_id', 'category_id'
         ];
 
     public function getTableHeaders()
