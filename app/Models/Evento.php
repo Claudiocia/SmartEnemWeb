@@ -32,14 +32,14 @@ class Evento extends Model implements Transformable, TableInterface
 
     public function getTableHeaders()
     {
-        return [ 'Tag', 'Inicio', 'Final', 'Status'];
+        return [ 'Evento', 'Inicio', 'Final', 'Status'];
     }
 
     public function getValueForHeader($header)
     {
         switch ($header){
-            case 'Tag':
-                return $this->category->name;
+            case 'Evento':
+                return $this->titulo;
             case 'Inicio':
                 if ($this->inicio == null){
                     return 'Data a ser definida';
