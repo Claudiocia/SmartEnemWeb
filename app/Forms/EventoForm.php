@@ -24,7 +24,7 @@ class EventoForm extends Form
             ])
             ->add('mes', 'text', [
                 'label' => 'Mês de Início',
-                'rules' => 'required|month'
+                'rules' => 'required'
             ])
             ->add('ordmes', 'text', [
                 'label' => 'Ordem no cronograma',
