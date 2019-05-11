@@ -54,7 +54,7 @@ class ContactosController extends Controller
 
         $name= $form->getFieldValues();
 
-        Mail::to(env('EMAIL_TO_ADRESS', 'c2sequipe@gmail'))->send(new SendMailable($name));
+        Mail::to(env('EMAIL_TO_ADRESS', 'c2sequipe@gmail.com'))->send(new SendMailable($name));
 
         return view('contatos.resp');
 
