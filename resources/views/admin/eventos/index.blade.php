@@ -6,7 +6,8 @@
         <h4>Listagem de Eventos</h4>
     </div>
     <div class="row" style="margin-bottom: 1em">
-        {!! \Bootstrapper\Facades\Button::primary('Novo Evento')->asLinkTo(route('admin.eventos.create')) !!}
+        {!! \Bootstrapper\Facades\Button::primary('Novo Evento')->asLinkTo(route('admin.eventos.create')).
+        '&nbsp;&nbsp;&nbsp;&nbsp;'.$eventos->links() !!}
     </div>
     <div class="row">
         {!! Table::withContents($eventos->items())->striped()

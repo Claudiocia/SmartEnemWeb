@@ -7,7 +7,6 @@
                 <div class="card with-transitions">
                     <div class="card-header"><h4>Ultimas Noticias</h4>
                         <div class="row" style="margin-left: 5px">
-                            Colocar botão de navegação
                         </div>
                     </div>
 

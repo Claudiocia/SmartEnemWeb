@@ -5,6 +5,8 @@ namespace SmartEnem\Providers;
 use Illuminate\Support\ServiceProvider;
 use SmartEnem\Repositories\CategoryRepository;
 use SmartEnem\Repositories\CategoryRepositoryEloquent;
+use SmartEnem\Repositories\ContactRepository;
+use SmartEnem\Repositories\ContactRepositoryEloquent;
 use SmartEnem\Repositories\EventoRepository;
 use SmartEnem\Repositories\EventoRepositoryEloquent;
 use SmartEnem\Repositories\PublicationRepository;

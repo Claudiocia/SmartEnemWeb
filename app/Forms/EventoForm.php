@@ -12,6 +12,9 @@ class EventoForm extends Form
     {
         $status = ['Aguardando início' => 'Aguardando início', 'Prazo vigente' => 'Prazo vigente',
             'Prazo encerrado' => 'Prazo encerrado', 'Últimos dias' => 'Últimos dias'];
+        $month = ['Janeiro' =>'Janeiro', 'Fevereiro' => 'Fevereiro', 'Março' =>'Março', 'Abril' => 'Abril',
+                  'Maio' => 'Maio', 'Junho' => 'Junho', 'Julho' =>'Julho', 'Agosto' => 'Agosto',
+                  'Setembro' => 'Setembro', 'Outubro' => 'Outubro', 'Novembro' => 'Novembro', 'Dezembro' => 'Dezembro' ];
         $id = Auth::user()->id;
         $this
             ->add('user_id', 'hidden', [
@@ -21,6 +24,16 @@ class EventoForm extends Form
             ->add('year', 'text', [
                 'label' => 'Ano do Enem (yyyy)',
                 'rules' => 'required|digits:4'
+            ])
+            ->add('month', 'select', [
+                'label' => 'Mês do evento',
+                'choices' => $month,
+                'empty_value' => 'Selecione...',
+                'rules' => 'required'
+            ])
+            ->add('ordem_mes', 'text', [
+                'label' => 'Ordem do evento',
+                'rules' => 'required|digits:2'
             ])
             ->add('inicio', 'date', [
                 'label' => 'Início do evento',

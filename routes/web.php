@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::name('home')->get('/', function () {
     return view('welcome');
 });
 
@@ -25,6 +25,18 @@ Route::name('noticias.thumb_small_asset')
 Route::name('noticias.thumb_asset')
     ->get('noticias/{publication}/thumb_asset', 'NoticiasController@thumbAsset');
 
+Route::get('/calendarios/index', 'CalendariosController@index')
+    ->name('calendarios.index');
+Route::get('/calendarios/show/{evento}', 'CalendariosController@show')
+    ->name('calendarios.show');
+
+Route::get('cria/email', 'ContactosController@index')
+    ->name('cria.email');
+Route::post('/send/email', 'ContactosController@mail')
+    ->name('send.email');
+Route::name('resp')->get('/contatos/resp', function (){
+    return view('contatos.resp');
+});
 
 
 

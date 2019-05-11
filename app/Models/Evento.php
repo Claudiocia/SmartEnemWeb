@@ -27,12 +27,13 @@ class Evento extends Model implements Transformable, TableInterface
         [
             'inicio', 'final', 'titulo', 'resumo',
             'publicada', 'atualizada', 'status',
-            'tag', 'year', 'user_id', 'category_id'
+            'tag', 'year', 'user_id', 'category_id',
+            'month', 'ordem_mes'
         ];
 
     public function getTableHeaders()
     {
-        return [ 'Evento', 'Inicio', 'Final', 'Status'];
+        return ['Ord',  'Evento', 'Inicio', 'Final', 'Status'];
     }
 
     public function getValueForHeader($header)
@@ -40,6 +41,8 @@ class Evento extends Model implements Transformable, TableInterface
         switch ($header){
             case 'Evento':
                 return $this->titulo;
+            case 'Ord':
+                return $this->ordem_mes;
             case 'Inicio':
                 if ($this->inicio == null){
                     return 'Data a ser definida';

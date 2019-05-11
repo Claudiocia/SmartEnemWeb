@@ -72,8 +72,8 @@
                 </div>
                 <div class="links">
                     <a href="{{ route('noticias.index') }}">Notícias</a>
-                    <a href="#">Agenda</a>
-                    <a href="#">Contato</a>
+                    <a href="{{ route('calendarios.index') }}">Calendário</a>
+                    <a href="{{ route('cria.email') }}">Contato</a>
 
                 </div>
             </div>

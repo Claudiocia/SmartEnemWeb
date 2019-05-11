@@ -31,7 +31,8 @@ class EmailVerificationController extends Controller
     protected function loginUser(){
     $email = \Request::get('email');
     $user = $this->repository->findByField('email', $email)->first();
-        \Auth::login($user);
+        \Auth::logout($user);
+        $this->redirectAfterVerification()->route('home');
 
     }
 
