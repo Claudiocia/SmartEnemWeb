@@ -16,19 +16,19 @@
                         @foreach($eventos as $evento)
                                     <thead>
                                     <tr>
-                                        <th scope="colspan 3" style="font-size: 30px">
+                                        <th class="mesano" scope="colspan 3" style="font-size: 30px">
                                             {{ Html::image('/image/calendario_data.jpg', 'icone', ['height' => '40']) }}
                                             {!! $evento->month.' - '.$evento->year !!}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <th scope="row" style="font-size: 15px">
+                                        <th class="tituloevento" scope="row" style="font-size: 15px">
                                             {{ $evento->titulo }}
                                         </th>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="dataevemto">
                                             <?php
                                                 switch ($evento->status){
                                                     case 'Aguardando início':
@@ -45,7 +45,7 @@
                                                         break;
                                                 }
 
-                                                echo "<img src='".$img."' alt='icone' height='35px' />";
+                                                echo "<img class='imgevento' src='".$img."' alt='icone' height='35px'/>";
                                             ?>
                                              <?php
 
@@ -59,7 +59,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row" colspan="3">Status {!! $evento->status !!}</th>
+                                        <th class="statusevento" scope="row" colspan="3">Status {!! $evento->status !!}</th>
                                     </tr>
                                     <tr>
                                         <th>
