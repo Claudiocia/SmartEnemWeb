@@ -12,6 +12,8 @@
 
                     <div class="card-body">
 
+
+
                         <table class="table-striped">
                         @foreach($eventos as $evento)
                                     <thead>
