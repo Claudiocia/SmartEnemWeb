@@ -38,10 +38,19 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item btn btn-primary mr-lg-3" type="button">
+                            <a class="nav-link" href="{{ route('noticias.index') }}"><span style="font-weight: bold; color: white;">{{ __('Noticias') }}</span></a>
+                        </li>
+                        <li class="nav-item btn btn-primary mr-lg-3" type="button">
+                            <a class="nav-link" href="{{ route('calendarios.index') }}"><span style="font-weight: bold; color: white;">{{ __('Calendário') }}</span></a>
+                        </li>
+                        <li class="nav-item btn btn-primary mr-lg-3" type="button">
+                            <a class="nav-link" href="{{ route('cria.email') }}"><span style="font-weight: bold; color: white;">{{ __('Contato') }}</span></a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}">{{ __('Voltar') }}</a>
-                            </li>
+                        <li class="nav-item btn btn-primary mr-lg-3" type="button">
+                            <a class="nav-link" href="{{ url('/') }}"><span style="font-weight: bold; color: white;">{{ __('Voltar') }}</span></a>
+                        </li>
 
 
                     </ul>
