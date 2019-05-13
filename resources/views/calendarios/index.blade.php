@@ -45,6 +45,7 @@
                                             }
 
                                             ?></p>
+                                        <p class="resumo">->{!! $evento->resumo !!}</p>
                                         <blockquote class="blockquote-footer text-left">
                                             Status: <cite title="Status" style="font-weight: bold">{!! $evento->status !!}</cite>
                                         </blockquote>
