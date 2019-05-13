@@ -17,7 +17,7 @@
                                     <div class="media-body">
                                         <h4 class="mt-0 mb-1">{!! $evento->month.' - '.$evento->year !!}</h4>
                                         <h5>{{ $evento->titulo }}</h5>
-                                        <p>
+                                        <p class="dataevento">
                                             <?php
                                             switch ($evento->status){
                                                 case 'Aguardando início':
