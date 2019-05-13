@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" xmlns:display="http://www.w3.org/1999/xhtml"
+      xmlns:width="http://www.w3.org/1999/xhtml" xmlns:height="http://www.w3.org/1999/xhtml"
+      xmlns:margin="http://www.w3.org/1999/xhtml" xmlns:background-size="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,6 +29,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style type="text/css">
+        .whatsapp-share-button {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            background-size: 100% 100%;
+        }
+    </style>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -39,6 +50,16 @@
         js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+
+<script>
+    //Constrói a URL depois que o DOM estiver pronto
+    document.addEventListener("DOMContentLoaded", function() {
+        //conteúdo que será compartilhado: Título da página + URL
+        var conteudo = encodeURIComponent(document.title + " " + window.location.href);
+        //altera a URL do botão
+        document.getElementById("whatsapp-share-btt").href = "https://api.whatsapp.com/send?text=" + conteudo;
+    }, false);
+</script>
 
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
@@ -124,11 +145,16 @@
                             </tbody>
 
                         </table>
-                        <div class="row ml-5">
-                            <!-- Your share button code -->
-                            <div class="fb-share-button"
-                                 data-href="https://smartenem.com.br/noticias/show/{{ $publication->id }}"
-                                 data-layout="button" data-size="small">
+                        <div class="row" style="width: 180px;">
+                            <div class="col">
+                                <!-- Your share button code -->
+                                <div class="fb-share-button"
+                                     data-href="https://smartenem.com.br/noticias/show/{{ $publication->id }}"
+                                     data-layout="button" data-size="small">
+                                </div>
+                            </div>
+                            <div class="col" style="float: right">
+                                <a href="" id="whatsapp-share-btt" rel="nofollow" target="_blank">{{ Html::image('/image/whatsapp-icon.png', 'whatsapp', ['height' => '40']) }}</a>
                             </div>
 
                         </div>
