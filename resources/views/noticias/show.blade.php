@@ -30,7 +30,16 @@
 </head>
 <body>
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.3"></script>
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
@@ -115,8 +124,12 @@
                             </tbody>
 
                         </table>
-                        <div class="row">
-                            <div class="fb-share-button" data-href="https://www.smartenem.com.br/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.smartenem.com.br%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
+                        <div class="row ml-5">
+                            <!-- Your share button code -->
+                            <div class="fb-share-button"
+                                 data-href="https://smartenem.com.br/noticias/show/{{ $publication->id }}"
+                                 data-layout="button" data-size="small">
+                            </div>
 
                         </div>
 
