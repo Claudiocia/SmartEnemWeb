@@ -7,6 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Marcações de compartilhamento facebook -->
+    <meta property="og:url" content="application/link-format"/>
+
     <title>{{ config('app.name', 'SmartEnem') }}</title>
 
     <!-- Scripts -->
