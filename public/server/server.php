@@ -12,5 +12,6 @@
 	fwrite($f, 'Header: '.$_POST['header']."\r\n\r\n");
 	fclose($f);
 	
-	echo 'Mensagem enviada com sucesso';
+	echo 'Mensagem que veio do site recebida com sucesso<br/>';
+	echo 'mensagem: '.UTF8_decode($_POST['mensagem']);
 ?>
