@@ -8,6 +8,6 @@
 	fwrite($f, 'Header: '.$_POST['header']."\r\n\r\n");
 	fclose($f);
 	
-	echo 'Mensagem que veio do site recebida com sucesso<br/>';
-	echo 'mensagem: '.UTF8_decode($_POST['local']);
+	echo "Mensagem que veio do served recebida com sucesso\r\n";
+	echo "mensagem: ".UTF8_decode($_POST['local']);
 ?>
