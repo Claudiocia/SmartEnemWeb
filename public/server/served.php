@@ -4,7 +4,7 @@
 
 	$f = fopen('POST_DATA.txt', 'a');
 
-	fwrite($f, 'id_app: '.$_POST['id_app']."\r\n");
+	fwrite($f, 'id_app: '.UTF8_decode($_POST['id_app'])."\r\n");
     fwrite($f, 'nome_user: '.$_POST['nome_user']."\r\n");
     fwrite($f, 'nome_munic: '.$_POST['nome_munic']."\r\n");
     fwrite($f, 'nome_local: '.$_POST['nome_local']."\r\n");
