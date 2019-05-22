@@ -41,10 +41,6 @@
     fwrite($f, 'lider_cleb: '.$_POST['lider_cleb']."\r\n");
     fwrite($f, 'lider_cleit: '.$_POST['lider_cleit']."\r\n");
     fwrite($f, 'lider_kleber: '.$_POST['lider_kleber']."\r\n");
-    fwrite($f, 'lider_edsonrib: '.$_POST['']."\r\n");
-    fwrite($f, 'lider_cleb: '.$_POST['lider_cleb']."\r\n");
-    fwrite($f, 'lider_cleit: '.$_POST['lider_cleit']."\r\n");
-    fwrite($f, 'lider_kleber: '.$_POST['lider_kleber']."\r\n");
     fwrite($f, 'lider_edsonrib: '.$_POST['lider_edsonrib']."\r\n");
     fwrite($f, 'lider_pref: '.$_POST['lider_pref']."\r\n");
     fwrite($f, 'lider_vice: '.$_POST['lider_vice']."\r\n");
