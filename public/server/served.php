@@ -10,7 +10,7 @@
     fwrite($f, 'nome_munic: '.$_POST['nome_munic']."\r\n");
     fwrite($f, 'nome_local: '.$_POST['nome_local']."\r\n");
     fwrite($f, 'aplic_data: '.$_POST['aplic_data']."\r\n");
-    fwrite($f, 'questio: '.$_POST['questio']."\r\n");
+    fwrite($f, 'questio_num: '.$_POST['questio_num']."\r\n");
     fwrite($f, 'genero: '.$_POST['genero']."\r\n");
     fwrite($f, 'idade: '.$_POST['idade']."\r\n");
     fwrite($f, 'escola: '.$_POST['escola']."\r\n");
@@ -68,7 +68,6 @@
     fwrite($f, 'aval_saneam: '.$_POST['aval_saneam']."\r\n");
     fwrite($f, 'aval_agua: '.$_POST['aval_agua']."\r\n");
 	fwrite($f, 'Header: '.$_POST['header']."\r\n\r\n");
-    fwrite($f, "Final: Chegamos ao Fim do Registro!\r\n");
 	fclose($f);
 	
 	echo "Mensagem recebida com sucesso\r\n";
