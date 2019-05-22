@@ -4,7 +4,6 @@
 
 	$f = fopen('POST_DATA.txt', 'a');
 
-	fwrite($f, 'Registro recebido em: '.$_POST['dataH_transmiss']."\r\n\r\n");
 	fwrite($f, 'id_app: '.$_POST['id_app']."\r\n");
     fwrite($f, 'nome_user: '.$_POST['nome_user']."\r\n");
     fwrite($f, 'nome_munic: '.$_POST['nome_munic']."\r\n");
@@ -62,10 +61,12 @@
     fwrite($f, 'aval_admin: '.$_POST['aval_admin']."\r\n");
     fwrite($f, 'aval_seg: '.$_POST['aval_seg']."\r\n");
     fwrite($f, 'aval_saneam: '.$_POST['aval_saneam']."\r\n");
-    fwrite($f, 'aval_agua: '.$_POST['aval_agua']."\r\n");
+    fwrite($f, 'aval_agua: '.$_POST['aval_agua']."\r\n\r\n");
+    fwrite($f, 'Registro recebido em: '.$_POST['dataH_transmiss']."\r\n\r\n");
 	fwrite($f, 'Header: '.$_POST['header']."\r\n\r\n");
 	fclose($f);
 	
-	echo "Mensagem recebida com sucesso\r\n";
+	echo "Mensagem recebida com sucesso";
+
 
 ?>
