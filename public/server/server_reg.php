@@ -2,7 +2,7 @@
 
 	header("Content-Type: text/html; charset=UTF-8",true);
 
-	$f = fopen('POST_DATA.txt', 'a');
+	$f = fopen('POST_DATAREG.txt', 'a');
 	fwrite($f, 'Nome:'.UTF8_decode($_POST['nome'])."\r\n");
 	fwrite($f, 'Email: '.$_POST['email']."\r\n");
 	fwrite($f, 'Matricula: '.$_POST['matricula']."\r\n");
