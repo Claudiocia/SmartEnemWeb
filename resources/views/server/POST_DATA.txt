@@ -1,0 +1,177 @@
+Nome:claudio
+Email: claudio@gmail.com
+Matricula: 085649785
+Destinatario: PROGRAD - Pr√≥-Reitoria de Ensino de Gradua√ß√£o
+
+Mensagem: estado de avan√ßo. acho que tenho de fazer aquela implementa√ß√£o do on create
+
+Data/Hora: 03/07/2015 - 14:58:45
+
+Nome:claudio 2
+Email: claudio@gmail.com
+Matricula: 0856497843
+Destinatario: PROGRAD - Pr√≥-Reitoria de Ensino de Gradua√ß√£o
+
+Mensagem: tesfde para ver se vai o header
+
+Data/Hora: 03/07/2015 - 15:03:26
+
+Header: 
+
+Nome:claudio
+Email: claudio@gmail.com
+Matricula: 856487945
+Destinatario: PROGRAD - Pr√≥-Reitoria de Ensino de Gradua√ß√£o
+
+Mensagem: nova mensagem
+
+Data/Hora: 03/07/2015 - 15:26:47
+
+Header: 
+
+Nome:claufio3
+Email: claudio@gggg.com
+Matricula: 0784657649
+Destinatario: PROGRAD - Pr√≥-Reitoria de Ensino de Gradua√ß√£o
+
+Mensagem: teste de envio novo
+
+Data/Hora: 03/07/2015 - 16:10:04
+
+Header: 
+
+Nome:Cl√°udio
+Email: claudio@gmail.com
+Matricula: 08564875648
+Destinatario: PROAF - Pr√≥-Reitoria De A√ß√µes Afirmativas
+
+Mensagem: teste com o fundo azul e estando o valor do destinat√°rio no metido send
+
+Data/Hora: 03/07/2015 - 17:31:15
+
+Header: 
+
+Nome:Cl√°udio
+Email: claudio@gmail.com
+Matricula: 0856494845
+Destinatario: PROAF - Pr√≥-Reitoria De A√ß√µes Afirmativas
+
+Mensagem: teste de acento e cedilha
+
+Data/Hora: 03/07/2015 - 17:38:21
+
+Header: 
+
+Nome:Cl√°udio
+Email: claudio@gmail.com
+Matricula: 58746987
+Destinatario: PROAF - Pr√≥-Reitoria De A√ß√µes Afirmativas
+
+Mensagem: teste se acento
+
+Data/Hora: 03/07/2015 - 17:40:42
+
+Header: 
+
+Nome:claudio
+Email: claudio@gmail.com
+Matricula: 9487546487
+Destinatario: PROAD - Pr√≥-Reitoria De Administra√ß√£o
+
+Mensagem: teste novo vai continuar com a quest√£o dos acentos
+
+Data/Hora: 03/07/2015 - 20:23:30
+
+Header: 
+
+Nome:Cl√°udio
+Email: claudio@hotmail.com
+Matricula: 75642865
+Destinatario: PROAF - Pr√≥-Reitoria De A√ß√µes Afirmativas
+
+Mensagem: novo teste de mensagens
+
+Data/Hora: 04/07/2015 - 05:22:14
+
+Header: 
+
+Nome:Cl·udio
+Email: claudio@gmail.com
+Matricula: 85478965
+Destinatario: PROAF - Pr√≥-Reitoria De A√ß√µes Afirmativas
+
+Mensagem: teste novo
+
+Data/Hora: 05/07/2015 - 15:37:28
+
+Header: 
+
+Nome:Cl·udio
+Email: claudio
+Matricula: 856544856
+Destinatario: PROAF - PrÛ-Reitoria De AÁıes Afirmativas
+
+Mensagem: teste de acento e cedilha vamos · aÁ„o
+com mais elementos
+ÈËÍ?
+
+Data/Hora: 05/07/2015 - 15:40:04
+
+Header: 
+
+Nome:claudio
+Email: claudio@gmail.com
+Matricula: 856987455
+Destinatario: PROGRAD - PrÛ-Reitoria de Ensino de GraduaÁ„o
+
+Mensagem: hahshdjd
+
+Data/Hora: 29/07/2015 - 17:52:17
+
+Header: 
+
+Nome:Claudio
+Email: claudiosouza.cia@gmail.com
+Matricula: 12345
+Destinatario: PROGRAD - PrÛ-Reitoria de Ensino de GraduaÁ„o
+
+Mensagem: teste de envio
+
+Data/Hora: 01/10/2015 - 16:17:08
+
+Header: 
+
+Nome:Claudio
+Email: claudiosouza.cia@gmail.com
+Matricula: 12345
+Destinatario: PPG - PrÛ-Reitoria de Pesquisa e Ensino de PÛs-GraduaÁ„o
+
+Mensagem: teste novo
+
+Data/Hora: 01/10/2015 - 16:21:17
+
+Header: {apiKey=Essa e minha API KEY: sdvkjbsdjvkbskdv}
+
+Nome:Claudio
+Email: claudiosouza.cia@gmail.com
+Matricula: 12345
+Destinatario: PRAES  - PrÛ-Reitoria  de AssistÍncia Estudantil
+
+Mensagem: rghjvff
+
+
+Data/Hora: 06/10/2015 - 13:47:16
+
+Header: {apiKey=Essa e minha API KEY: sdvkjbsdjvkbskdv}
+
+Nome:Claudio
+Email: claudiosouza.cia@gmail.com
+Matricula: 12345
+Destinatario: Selecione o destinat·rio
+
+Mensagem: teste
+
+Data/Hora: 15/10/2015 - 08:50:11
+
+Header: {apiKey=Essa e minha API KEY: sdvkjbsdjvkbskdv}
+

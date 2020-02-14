@@ -15,6 +15,10 @@ Route::name('home')->get('/', function () {
     return view('welcome');
 });
 
+Route::name('server')->get('/server/ctrl/', function (){
+    return view('CtrlGcm');
+});
+
 //Rotas publicas
 Route::get('/noticias/index', 'NoticiasController@index')
     ->name('noticias.index');
